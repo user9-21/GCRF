@@ -1,6 +1,6 @@
 # Track 1: Cloud Infrastructure Track
 
-## [Google Cloud Essentials](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/1.1.Creating-a-Virtual-Machine.sh)
+## Google Cloud Essentials
 #### [1.1.Creating a Virtual Machine](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/1.1.Creating-a-Virtual-Machine.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/1.1.Creating-a-Virtual-Machine.sh
@@ -27,7 +27,7 @@ curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Q
 source script.sh
 
 ```
-
+## Baseline: Infrastructure
 #### [2.1.Cloud Storage: Qwik Start - CLI/SDK](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/2.1.Cloud-Storage-Qwik-Start-CLI-SDK.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/2.1.Cloud-Storage-Qwik-Start-CLI-SDK.sh
@@ -62,7 +62,7 @@ curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Q
 source script.sh
 
 ```
-
+## Networking in Google Cloud
 #### [3.1.User Authentication: Identity-Aware Proxy](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/3.1.User-Authentication-Identity-Aware-Proxy.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/3.1.User-Authentication-Identity-Aware-Proxy.sh
@@ -105,6 +105,7 @@ source script.sh
 
 ```
 
+## Kubernetes in Google Cloud
 #### [4.1.Introduction to Docker](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/4.1.Introduction-to-Docker.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/4.1.Introduction-to-Docker.sh
@@ -133,6 +134,7 @@ source script.sh
 
 ```
 
+## DevOps Essentials
 #### [6.5.Troubleshooting Workloads on GKE for Site Reliability Engineers](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/6.5.Troubleshooting-Workloads-on-GKE-for-Site-Reliability-Engineers.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/6.5.Troubleshooting-Workloads-on-GKE-for-Site-Reliability-Engineers.sh
@@ -140,6 +142,7 @@ source script.sh
 
 ```
 
+## Understanding Your Google Cloud Costs
 #### [7.3.Analyzing Billing Data with BigQuery](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/7.3.Analyzing-Billing-Data-with-BigQuery.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/7.3.Analyzing-Billing-Data-with-BigQuery.sh
@@ -152,6 +155,7 @@ https://console.cloud.google.com/bigquery?sq=408799594737:4c3ec6debf7e43f8a9b38f
 
 ```
 
+## Google Cloud Solutions
 #### [8.1.Autoscaling an Instance Group with Custom Cloud Monitoring Metrics](https://github.com/user9-21/GCRF/blob/main/Track-1/Quest/8.1.Autoscaling-an-Instance-Group-with-Custom-Cloud-Monitoring-Metrics.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Quest/8.1.Autoscaling-an-Instance-Group-with-Custom-Cloud-Monitoring-Metrics.sh
@@ -202,6 +206,7 @@ source script.sh
 ```
 
 <!------
+## []()
 #### []()
 ```
 curl -o script.sh 
@@ -223,6 +228,7 @@ source script.sh
 
 ```
 
+## []()
 #### []()
 ```
 curl -o script.sh 
