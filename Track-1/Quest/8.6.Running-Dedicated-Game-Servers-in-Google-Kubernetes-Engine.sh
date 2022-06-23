@@ -34,7 +34,7 @@ chmod +x ssh.sh
 echo "${CYAN}${BOLD}
 File permission granted to ssh.sh
 ${RESET}"
-sleep 100
+sleep 20
 gcloud compute scp --zone us-central1-a --quiet ssh.sh instance:~
 
 echo "${BOLD}${YELLOW}
@@ -64,7 +64,19 @@ ${GCR_REGION}.gcr.io/${PROJECT_ID}/openarena:0.8.8 .
 gcloud docker -- push \
   ${GCR_REGION}.gcr.io/${PROJECT_ID}/openarena:0.8.8
   
+echo "${BOLD}${YELLOW}
+Run this in ssh:
+${BG_RED}
+gsutil -m cp -r gs://spls/gsp133/gke-dedicated-game-server .
+GCR_REGION=us 
+PROJECT_ID=$PROJECT_ID
+cd gke-dedicated-game-server/openarena
+docker build -t ${GCR_REGION}.gcr.io/${PROJECT_ID}/openarena:0.8.8 .
+gcloud docker -- push ${GCR_REGION}.gcr.io/${PROJECT_ID}/openarena:0.8.8
+exit
+${RESET}"
 
+gcloud compute ssh instance --zone=us-central1-a --quiet
 completed "Task 2"
 
 region=us-east1
@@ -139,6 +151,19 @@ PROJECT_ID=$PROJECT_ID
 cd ../scaling-manager
 chmod +x build-and-push.sh
 source ./build-and-push.sh
+
+echo "${BOLD}${YELLOW}
+Run this in ssh:
+${BG_RED}
+GCR_REGION=us 
+PROJECT_ID=$PROJECT_ID
+cd gke-dedicated-game-server/scaling-manager
+chmod +x build-and-push.sh
+source ./build-and-push.sh
+exit
+${RESET}"
+
+gcloud compute ssh instance --zone=us-central1-a --quiet
 
 completed "Task 6"
 gcloud compute instance-groups managed list
