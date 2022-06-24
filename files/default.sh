@@ -42,6 +42,19 @@ USER_EMAIL=$(gcloud auth list --limit=1 2>/dev/null | grep '@' | awk '{print $2}
 
 #echo "${GREEN}${BOLD}Task 1 Completed${RESET}"
 
+function secondproject {
+	SECOND_PROJECT_ID=$(gcloud projects list | grep 'PROJECT_ID: qwiklabs-gcp' | awk '{print $2}' | head -1)
+	if [ $PROJECT_ID = $SECOND_PROJECT_ID ]
+	then
+	SECOND_PROJECT_ID=$(gcloud projects list | grep 'PROJECT_ID: qwiklabs-gcp' | awk '{print $2}' | tail -1)
+	echo tailed
+	echo $SECOND_PROJECT_ID
+	fi
+
+	echo "${BOLD}${YELLOW}Your second Project ID =${CYAN} $SECOND_PROJECT_ID ${RESET}"
+}
+
+
 
 function warning {
        echo "${BOLD}${YELLOW}
