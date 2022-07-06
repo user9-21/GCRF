@@ -18,21 +18,21 @@ sudo apt install stackdriver-agent -y
 curl -sSO https://dl.google.com/cloudagents/add-logging-agent-repo.sh
 sudo bash add-logging-agent-repo.sh
 sudo apt update
-sudo apt install google-fluentd' > script.sh
+sudo apt install google-fluentd' > startup_script.sh
 
-gsutil  cp script.sh gs://$PROJECT_ID
+gsutil  cp startup_script.sh gs://$PROJECT_ID
 
 gcloud compute instances create lamp-1-vm \
-        --machine-type=n1-standard-2 \
+    --machine-type=n1-standard-2 \
 	--zone=us-central1-a \
+	--metadata=startup-script-url=gs://$PROJECT_ID/startup_script.sh \
 	--tags=http-server \
-	--metadata=startup-script-url=gs://$PROJECT_ID/script.sh 
-
+	--create-disk=auto-delete=yes,boot=yes,device-name=lamp-1-vm,image=projects/debian-cloud/global/images/debian-10-buster-v20220621,mode=rw,size=10,type=projects/$PROJECT_ID/zones/us-central1-a/diskTypes/pd-balanced --no-shielded-secure-boot
 
 completed "Task 1"
 
+warning "Wait for Apache2 HTTP server to install"
 
-completed "Task 2"
 
 echo "${BOLD}${YELLOW}
 Now Allow http trapic in lamp-1-vm and click save -${CYAN} https://console.cloud.google.com/compute/instancesEdit/zones/us-central1-a/instances/lamp-1-vm 
@@ -74,4 +74,4 @@ ${RESET}"
 
 completed "Lab"
 
-remove_files 
+remove_files

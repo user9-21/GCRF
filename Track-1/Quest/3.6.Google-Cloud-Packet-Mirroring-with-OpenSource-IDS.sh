@@ -154,7 +154,7 @@ echo "${CYAN}${BOLD}
 File permission granted to ssh.sh
 ${RESET}"
 
-NAME=$(gcloud compute instances list --format='value(NAME)' | grep ids)
+NAME=`gcloud compute instances list --format='value(NAME)' | grep ids`
 
 gcloud compute packet-mirrorings create mirror-dm-stamford-web \
 --collector-ilb=ilb-dm-stamford-suricata-ilb-us-west4 \
@@ -163,11 +163,12 @@ gcloud compute packet-mirrorings create mirror-dm-stamford-web \
 --region=us-west4
 
 completed "Task 6"
-gcloud compute scp --zone us-west4-a  --quiet ssh.sh $NAME:~
-#echo "${BOLD}${YELLOW}Run this in ssh:
+#gcloud compute scp --zone us-west4-a  --quiet ssh.sh $NAME:~
 
+echo "${BOLD}${YELLOW}Run this in another terminaL:
 ${BG_RED}
 ./ssh.sh${RESET}"
+
 #gcloud compute ssh $NAME --zone us-west4-a
 
 

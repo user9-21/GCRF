@@ -38,6 +38,7 @@ process.on('SIGINT', function() {
 EOF
 docker build -t node-app:0.1 .
 docker images
+warning "Press CTRL+C once to proceed with lab"
 docker run -p 4000:80 --name my-app node-app:0.1
 curl http://localhost:4000
 docker stop my-app && docker rm my-app

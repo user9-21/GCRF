@@ -28,7 +28,8 @@ ${RESET}"
 #gcloud auth list
 #gcloud config list project
 export PROJECT_ID=$(gcloud info --format='value(config.project)')
-export BUCKET_NAME=$(gcloud info --format='value(config.project)')
+PROJECT_NUMBER=`gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)"`
+#export BUCKET_NAME=$(gcloud info --format='value(config.project)')
 export EMAIL=$(gcloud config get-value core/account)
 #gcloud config set compute/region us-central1
 #gcloud config set compute/zone us-central1-a

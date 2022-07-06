@@ -75,4 +75,4 @@ completed "Task 3"
 
 completed "Lab"
 
-remove_files 
+remove_files

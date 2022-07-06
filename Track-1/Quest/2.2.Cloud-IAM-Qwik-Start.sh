@@ -30,10 +30,10 @@ gcloud projects remove-iam-policy-binding $PROJECT_ID --role='roles/viewer' --me
 
 completed "Task 2"
 
-gcloud projects add-iam-policy-binding $PROJECT_ID --role='roles/storage.objectViewer' --member $LASTUSER
+gcloud projects add-iam-policy-binding $PROJECT_ID --role='roles/storage.objectViewer' --member user:$LASTUSER
 
 completed "Task 3"
 
 completed "Lab"
 
-remove_files 
+remove_files
