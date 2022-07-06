@@ -16,7 +16,7 @@ bq query --use_legacy_sql=false \ '#standardSQL
 
 #bq query --use_legacy_sql=false \ ''
 #gs://qwiklabs-gcp-00-7b7835d09eab/revenue_reporting.csv
-curl -o https://raw.githubusercontent.com/user9-21/GCRF/main/Track-3/revenue_reporting.csv
+curl -o revenue_reporting.csv https://raw.githubusercontent.com/user9-21/GCRF/main/Track-3/revenue_reporting.csv
 ls
 bq --location=us load --autodetect --source_format=CSV ecommerce.revenue_reporting revenue_reporting.csv
 
@@ -38,7 +38,7 @@ warning "Visit -${CYAN} https://console.cloud.google.com/dataprep?project=$PROJE
 		Wrangle version of Recipe are displayed below for your convenience: 
 		you can copy each line(without line number) and paste in recipe box by clicking${CYAN} Add New Step ${YELLOW}to Create Recipe Quickly."
 cat > Recipe.txt <<EOF
-${MAGENTA}
+${BOLD}${MAGENTA}
 1. settype col: productSKU lockDataType: true type: String
 2. drop col: itemQuantity action: Drop
 3. drop col: itemRevenue action: Drop
@@ -51,18 +51,19 @@ ${MAGENTA}
 10. settype col: totalTransactionRevenue1 lockDataType: true type: Float
 EOF
 cat Recipe.txt
-echo "${YELLOW}After all Recipe are created, verify it from lab page and click Run.
+warning "${RESET}${YELLOW}After all Recipe are created, verify it from lab page and click Run.
 
- - In the Run Job page, select Dataflow for your Running Environment.
- - Under Publishing Actions, Click on Edit to the right of Create-CSV.
- - In the following page, select BigQuery from the left hand menu.
- - Select your ecommerce dataset.
- - Click Create a New Table from the panel on the right.
- - Name your table${CYAN} revenue_reporting.${YELLOW}
- - Select Drop the Table every run.
- - Click on Update.
+	- In the Run Job page, select Dataflow for your Running Environment.
+	- Under Publishing Actions, Click on Edit to the right of Create-CSV.
+	- In the following page, select BigQuery from the left hand menu.
+	- Select your ecommerce dataset.
+	- Click Create a New Table from the panel on the right.
+	- Name your table${CYAN} revenue_reporting.${YELLOW}
+	- Select Drop the Table every run.
+	- Click on Update.
 
-Click RUN."
+Click RUN.
+"
 completed "Task 1"
 
 completed "Lab"
