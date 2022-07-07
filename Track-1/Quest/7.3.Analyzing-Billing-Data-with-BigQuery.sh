@@ -32,7 +32,7 @@ bq query --use_legacy_sql=false \
 completed "Task 5"
 completed "Lab"
 
-warning "if error in points , Run this query:${CYAN}
-https://console.cloud.google.com/bigquery?sq=555348659885:191d22dcc9604c4fbe0339d95c9dd22c"
+warning "if error in points , Run particular query manually from lab instruction on BIGQUERY console:${CYAN}
 
+	https://console.cloud.google.com/bigquery?project=$PROJECT_ID"
 remove_files 
