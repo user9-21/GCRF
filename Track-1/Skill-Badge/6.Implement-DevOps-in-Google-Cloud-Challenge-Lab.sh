@@ -36,7 +36,8 @@ kubectl get pods
 
 sleep 10
 
-function ConfigureJenkins{
+
+
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
@@ -62,14 +63,12 @@ Now, ${CYAN}Web Preview on port 80 -${MAGENTA} https://shell.cloud.google.com/de
 	 - Click save 
 	 
 	Now Proceed with cloudShell"
+	
 warning "
 	${RED}${BOLD}Username       : ${CYAN}admin
 	${RED}${BOLD}Password       : ${CYAN}$(kubectl get secret cd-jenkins -o jsonpath='{.data.jenkins-admin-password}' | base64 --decode)
 	${RED}${BOLD}Repository URL : ${CYAN}$(gcloud source repos list --format='value(URL)')"
 
-}
-
-ConfigureJenkins
 
 warning "If error in sample-app pipeline, retry"
 
@@ -137,7 +136,12 @@ export FRONTEND_SERVICE_IP=$(kubectl get -o \
 jsonpath="{.status.loadBalancer.ingress[0].ip}" --namespace=production services gceme-frontend)
 warning "http://$FRONTEND_SERVICE_IP/version"
 sleep 5
-while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+
+#while true; do curl http://$FRONTEND_SERVICE_IP/version; sleep 1; done
+
+for i in {1..20}; do curl http://$FRONTEND_SERVICE_IP/version ; done
+
+
 
 kubectl get service gceme-frontend -n production
 git merge canary

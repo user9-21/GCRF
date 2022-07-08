@@ -9,7 +9,7 @@ source script.sh
 
 ```
 
-####[2. Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab](https://github.com/user9-21/GCRF/blob/main/Track-1/Skill-Badge/2.Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-Challenge-Lab.sh)
+#### [2. Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab](https://github.com/user9-21/GCRF/blob/main/Track-1/Skill-Badge/2.Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-Challenge-Lab.sh)
 ```
 curl -o script.sh https://raw.githubusercontent.com/user9-21/GCRF/main/Track-1/Skill-Badge/2.Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-Challenge-Lab.sh
 source script.sh
