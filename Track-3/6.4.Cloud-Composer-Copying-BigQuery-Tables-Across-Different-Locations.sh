@@ -7,20 +7,17 @@ gsutil mb -l eu gs://$PROJECT_ID-eu
 warning "It can take up to 20 minutes for the environment to complete the setup process.
 ${CYAN}
 	https://console.cloud.google.com/composer/environments?project=$PROJECT_ID"
-gcloud composer environments create composer-advanced-lab --location us-central1 --zone us-central1-a 
+gcloud composer environments create composer-advanced-lab  --location us-east1 --zone us-east1-c
+
 completed "Task 1"
 
-gcloud composer environments describe composer-advanced-lab --location us-central1 --format="value(state)"
+gcloud composer environments describe composer-advanced-lab --location us-east1
 completed "Task 2"
 
 bq --location=eu mk nyc_tlc_EU
 completed "Task 3"
 
-
-#DAGS_FOLDER_PATH=`gcloud composer environments describe highcpu --location us-central1 --format="value(config.dagGcsPrefix)"`
-#gsutil cp gs://cloud-training/datawarehousing/lab_assets/hadoop_tutorial.py $DAGS_FOLDER_PATH
-
-export DAGS_BUCKET=`gcloud composer environments describe composer-advanced-lab --location=us-central1 --format='value(config.dagGcsPrefix)'`
+export DAGS_BUCKET=`gcloud composer environments describe composer-advanced-lab --location=us-east1 --format='value(config.dagGcsPrefix)'`
 echo $DAGS_BUCKET
 cd ~
 gsutil -m cp -r gs://spls/gsp283/python-docs-samples .

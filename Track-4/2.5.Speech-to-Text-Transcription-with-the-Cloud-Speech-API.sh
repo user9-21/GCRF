@@ -12,7 +12,6 @@ export API_KEY=`gcloud alpha services api-keys get-key-string $add --format="val
 echo $API_KEY
 completed "Task 1"
 
-
 cat > request.json <<EOF
 {
   "config": {
@@ -24,9 +23,18 @@ cat > request.json <<EOF
   }
 }
 EOF
+
+
+gcloud compute scp --zone=us-central1-a --quiet request.json linux-instance:~
+gcloud compute scp --zone=us-central1-a --quiet request.json linux-instance:~
 completed "Task 2"
+
 curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json \
 "https://speech.googleapis.com/v1/speech:recognize?key=${API_KEY}" > result.json
+
+gcloud compute scp --zone=us-central1-a  --quiet result.json linux-instance:~
+gcloud compute scp --zone=us-central1-a  --quiet result.json linux-instance:~
+cat result.json
 
 completed "Task 3"
 warning "Visit ${CYAN}https://console.cloud.google.com/apis/credentials?project=$PROJECT_ID ${YELLOW}and create an api key manually to get ${GREEN}Task 1${YELLOW} marks"
